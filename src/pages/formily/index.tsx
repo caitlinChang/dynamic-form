@@ -1,6 +1,6 @@
 import React from "react";
 import { createForm } from "@formily/core";
-import { FormProvider, Field, createSchemaField } from "@formily/react";
+import { Field, createSchemaField } from "@formily/react";
 import { Form, FormItem, Input, Select, ArrayTable } from "@formily/antd";
 
 import ArrayList from "./components/arrayList";
