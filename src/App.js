@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "@formily/antd/dist/antd.css";
+import "antd/dist/antd.css";
+
+import FormilyComponent from "./pages/formily";
+import ReactJsonSchemaForm from "./pages/reactJsonSchemaForm";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ display: "flex" }}>
+      <div
+        style={{
+          flex: 1,
+          padding: "20px",
+          border: "1px solid #555",
+          margin: "10px",
+        }}
+      >
+        <FormilyComponent />
+      </div>
+      <div
+        style={{
+          flex: 1,
+          padding: "20px",
+          border: "1px solid #555",
+          margin: "10px",
+        }}
+      >
+        <ReactJsonSchemaForm />
+      </div>
     </div>
   );
 }
