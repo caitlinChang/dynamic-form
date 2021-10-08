@@ -15,5 +15,8 @@ export const arrayItemSchema = {
 export const arraySchema = {
   type: "array",
   "x-component": "ArrayCard",
+  "x-component-props": {
+    FieldSchema: arrayItemSchema,
+  },
   items: arrayItemSchema,
 };

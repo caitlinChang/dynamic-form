@@ -1,36 +1,27 @@
-import React from "react";
-import { createForm, ArrayField as ArrayFieldType } from "@formily/core";
+import React, { ReactElement } from "react";
+import { ArrayField, Field } from "@formily/core";
 import {
-  mapProps,
-  connect,
-  ArrayField,
-  observer,
-  useField,
-  createSchemaField,
-  Field,
   ISchema,
+  RecursionField,
+  useFieldSchema,
+  useField,
+  observer,
 } from "@formily/react";
-import { Form, Button, Select, Input } from "antd";
+import { Button } from "antd";
 
-import { arrayItemSchema } from "./schema";
-
-const SchemaField = createSchemaField({
-  components: {
-    Select,
-    Input,
-  },
-});
-type Props = {
-  FieldSchema?: ISchema;
+type PropsType = Field & {
+  children: (index: number) => ReactElement;
 };
-// 自定义组件的实现
-const ArrayCard = (props: Props) => {
-  const field = useField<ArrayFieldType>();
+// 用 JSON - Schema 实现自定义组件
+const ArrayCard = (props: PropsType) => {
+  const field = useField<ArrayField>();
+  const schema = useFieldSchema();
+
   return (
     <div>
-      {field.value?.map((item, index) => (
+      {field.value?.map((item: any, index: number) => (
         <div key={index}>
-          <SchemaField schema={props.FieldSchema || arrayItemSchema} />
+          <RecursionField name={index} schema={schema.items as any} />
           <Button onClick={() => field.remove(index)}>Delete</Button>
         </div>
       ))}
@@ -44,4 +35,4 @@ const ArrayCard = (props: Props) => {
     </div>
   );
 };
-export default ArrayCard;
+export default observer(ArrayCard);
