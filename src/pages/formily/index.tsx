@@ -1,23 +1,47 @@
 import React from "react";
-import { createForm } from "@formily/core";
+import { createForm, onFieldValueChange, FormPath } from "@formily/core";
 import { FormProvider, Field, createSchemaField } from "@formily/react";
-// import { FormItem, Input, FormLayout } from "@formily/antd";
+import { Form, FormButtonGroup } from "@formily/antd";
 
 import { schemaTree } from "./schema";
 import { components } from "./components";
 
+import { Button } from "antd";
+import ButtonGroup from "antd/lib/button/button-group";
+
 export default function FormilyComponent() {
-  const form = createForm();
+  const form = createForm({
+    effects() {
+      onFieldValueChange("button_setting", (field) => {
+        form.setFieldState("button_list", (state) => {
+          state.visible = field.value;
+        });
+      });
+    },
+  });
   const SchemaField = createSchemaField({ components });
+  const handleSave = function () {
+    const values = form.getValuesIn([]);
+    console.log("values = ", { ...values });
+  };
   return (
     <div>
       <h3>formily demo</h3>
-      <FormProvider form={form}>
+      <Form form={form} labelAlign="right" labelCol={5} wrapperCol={16}>
         <SchemaField
           components={components}
           schema={schemaTree as any}
         ></SchemaField>
-      </FormProvider>
+      </Form>
+      <FormButtonGroup>
+        <ButtonGroup>
+          <Button>Preview</Button>
+          <Button>Cancel</Button>
+        </ButtonGroup>
+        <Button type="primary" onClick={handleSave}>
+          Save
+        </Button>
+      </FormButtonGroup>
     </div>
   );
 }

@@ -11,6 +11,7 @@ import { Button } from "antd";
 
 type PropsType = Field & {
   children: (index: number) => ReactElement;
+  title?: string;
 };
 // 用 JSON - Schema 实现自定义组件
 const ArrayCard = (props: PropsType) => {
@@ -19,10 +20,17 @@ const ArrayCard = (props: PropsType) => {
 
   return (
     <div>
+      <h3>{props.title}</h3>
       {field.value?.map((item: any, index: number) => (
         <div key={index}>
+          <h4>Button #{index + 1}</h4>
+          <Button
+            style={{ float: "right" }}
+            onClick={() => field.remove(index)}
+          >
+            Delete
+          </Button>
           <RecursionField name={index} schema={schema.items as any} />
-          <Button onClick={() => field.remove(index)}>Delete</Button>
         </div>
       ))}
       <Button
