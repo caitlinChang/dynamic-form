@@ -58,15 +58,15 @@ export const schemaTree = new Schema({
     answer: {
       type: "array",
       title: "Answer",
-      // "x-component": "ConditionCompose",
-      items: {
-        type: "array",
-        "x-component": "ConditionCompose",
-        "x-decorator": "FormItem",
-        "x-decorator-props": {
-          label: "",
-        },
-      },
+      "x-component": "ConditionCompose",
+      // items: {
+      //   type: "array",
+      //   "x-component": "ConditionCompose",
+      //   "x-decorator": "FormItem",
+      //   "x-decorator-props": {
+      //     label: "",
+      //   },
+      // },
     },
     button_setting: {
       type: "boolean",

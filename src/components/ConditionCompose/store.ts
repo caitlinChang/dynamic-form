@@ -1,11 +1,15 @@
+import { makeAutoObservable } from "mobx";
+import React from "react";
 // 联动自增组件
-
 export class SelfIncreasingStore<T> {
   value: (T | undefined)[];
   templateParams: T | undefined;
   constructor(props?: { value?: T[]; templateParams?: T }) {
-    this.value = props?.value || [];
+    this.value = [];
     this.templateParams = props?.templateParams;
+    this.update(props?.value || []);
+
+    makeAutoObservable(this);
   }
 
   delete(index: number) {
@@ -13,6 +17,8 @@ export class SelfIncreasingStore<T> {
   }
 
   add(params?: T) {
+    console.log("add trigger");
+
     this.value.push(params || this.templateParams);
   }
 
@@ -20,3 +26,7 @@ export class SelfIncreasingStore<T> {
     this.value = value;
   }
 }
+
+export const SelfIncreasingContext =
+  // @ts-ignore
+  React.createContext<SelfIncreasingStore<any>>();
