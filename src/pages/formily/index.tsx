@@ -3,22 +3,16 @@ import { createForm, onFieldValueChange, FormPath } from "@formily/core";
 import { FormProvider, Field, createSchemaField } from "@formily/react";
 import { Form, FormButtonGroup } from "@formily/antd";
 
-import { schemaTree } from "./schema";
+import { schemaTree } from "./schema/index";
 import { components } from "./components";
 
 import { Button } from "antd";
 import ButtonGroup from "antd/lib/button/button-group";
 
+import "./index.css";
+
 export default function FormilyComponent() {
-  const form = createForm({
-    effects() {
-      onFieldValueChange("button_setting", (field) => {
-        form.setFieldState("button_list", (state) => {
-          state.visible = field.value;
-        });
-      });
-    },
-  });
+  const form = createForm({});
   const SchemaField = createSchemaField({ components });
   const handleSave = function () {
     const values = form.getValuesIn([]);
@@ -26,14 +20,14 @@ export default function FormilyComponent() {
   };
   return (
     <div>
-      <h3>formily demo</h3>
       <Form form={form} labelAlign="right" labelCol={5} wrapperCol={16}>
+        <h1>123123</h1>
         <SchemaField
           components={components}
           schema={schemaTree as any}
         ></SchemaField>
       </Form>
-      <FormButtonGroup>
+      <FormButtonGroup style={{ marginTop: "20px" }}>
         <ButtonGroup>
           <Button>Preview</Button>
           <Button>Cancel</Button>

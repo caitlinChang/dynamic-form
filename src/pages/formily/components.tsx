@@ -7,6 +7,7 @@ import {
   Switch,
   FormTab,
   ArrayCards,
+  ArrayTabs,
 } from "@formily/antd";
 import ConditionCompose from "../../components/ConditionCompose";
 import ArrayCard from "./components/ArrayCard";
@@ -23,5 +24,6 @@ export const components = {
   ConditionCompose,
   FormTab,
   Typography,
+  ArrayTabs,
   ArrayCard,
 };
