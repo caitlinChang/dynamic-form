@@ -23,9 +23,9 @@ const ArrayCard = (props: PropsType) => {
       <h3>{props.title}</h3>
       {field.value?.map((item: any, index: number) => (
         <div key={index}>
-          <h4>Button #{index + 1}</h4>
           <Button
             style={{ float: "right" }}
+            size="small"
             onClick={() => field.remove(index)}
           >
             Delete
@@ -34,6 +34,8 @@ const ArrayCard = (props: PropsType) => {
         </div>
       ))}
       <Button
+        type="dashed"
+        block
         onClick={() => {
           field.push({});
         }}

@@ -1,13 +1,27 @@
-import { Select, Input, Form, FormItem, Radio, Switch } from "@formily/antd";
+import {
+  Select,
+  Input,
+  Form,
+  FormItem,
+  Radio,
+  Switch,
+  FormTab,
+  ArrayCards,
+} from "@formily/antd";
 import ConditionCompose from "../../components/ConditionCompose";
 import ArrayCard from "./components/ArrayCard";
+
+import { Typography } from "antd";
 export const components = {
   Select,
-  ArrayCard,
+  ArrayCards,
   Input,
   Form,
   FormItem,
   Radio,
   Switch,
   ConditionCompose,
+  FormTab,
+  Typography,
+  ArrayCard,
 };
