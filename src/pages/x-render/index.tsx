@@ -1,7 +1,7 @@
 import React from "react";
 
 const FormRenderComponent = function () {
-  return;
+  return <div>x-render demo</div>;
 };
 
 export default FormRenderComponent;

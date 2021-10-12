@@ -21,7 +21,6 @@ export default function FormilyComponent() {
   return (
     <div>
       <Form form={form} labelAlign="right" labelCol={5} wrapperCol={16}>
-        <h1>123123</h1>
         <SchemaField
           components={components}
           schema={schemaTree as any}
