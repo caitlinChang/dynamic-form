@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env PUBLIC_URL=/dynamic-form/ react-scripts build",
+    "build": "cross-env PUBLIC_URL=/dynamic-form/build/ react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
