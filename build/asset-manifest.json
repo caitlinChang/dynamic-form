@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/dynamic-form/build/static/css/main.b3058946.chunk.css",
-    "main.js": "/dynamic-form/build/static/js/main.d17c59f1.chunk.js",
-    "main.js.map": "/dynamic-form/build/static/js/main.d17c59f1.chunk.js.map",
+    "main.js": "/dynamic-form/build/static/js/main.a3fd4ddb.chunk.js",
+    "main.js.map": "/dynamic-form/build/static/js/main.a3fd4ddb.chunk.js.map",
     "runtime-main.js": "/dynamic-form/build/static/js/runtime-main.c3a15384.js",
     "runtime-main.js.map": "/dynamic-form/build/static/js/runtime-main.c3a15384.js.map",
     "static/css/2.b0220099.chunk.css": "/dynamic-form/build/static/css/2.b0220099.chunk.css",
-    "static/js/2.4525c160.chunk.js": "/dynamic-form/build/static/js/2.4525c160.chunk.js",
-    "static/js/2.4525c160.chunk.js.map": "/dynamic-form/build/static/js/2.4525c160.chunk.js.map",
+    "static/js/2.15321211.chunk.js": "/dynamic-form/build/static/js/2.15321211.chunk.js",
+    "static/js/2.15321211.chunk.js.map": "/dynamic-form/build/static/js/2.15321211.chunk.js.map",
     "static/css/3.cfb0d088.chunk.css": "/dynamic-form/build/static/css/3.cfb0d088.chunk.css",
     "static/js/3.414b3f75.chunk.js": "/dynamic-form/build/static/js/3.414b3f75.chunk.js",
     "static/js/3.414b3f75.chunk.js.map": "/dynamic-form/build/static/js/3.414b3f75.chunk.js.map",
@@ -23,7 +23,7 @@
     "static/css/2.b0220099.chunk.css.map": "/dynamic-form/build/static/css/2.b0220099.chunk.css.map",
     "static/css/3.cfb0d088.chunk.css.map": "/dynamic-form/build/static/css/3.cfb0d088.chunk.css.map",
     "static/css/main.b3058946.chunk.css.map": "/dynamic-form/build/static/css/main.b3058946.chunk.css.map",
-    "static/js/2.4525c160.chunk.js.LICENSE.txt": "/dynamic-form/build/static/js/2.4525c160.chunk.js.LICENSE.txt",
+    "static/js/2.15321211.chunk.js.LICENSE.txt": "/dynamic-form/build/static/js/2.15321211.chunk.js.LICENSE.txt",
     "static/media/index.030309a0.less": "/dynamic-form/build/static/media/index.030309a0.less",
     "static/media/index.11973279.less": "/dynamic-form/build/static/media/index.11973279.less",
     "static/media/index.1402b635.less": "/dynamic-form/build/static/media/index.1402b635.less",
@@ -69,8 +69,8 @@
   "entrypoints": [
     "static/js/runtime-main.c3a15384.js",
     "static/css/2.b0220099.chunk.css",
-    "static/js/2.4525c160.chunk.js",
+    "static/js/2.15321211.chunk.js",
     "static/css/main.b3058946.chunk.css",
-    "static/js/main.d17c59f1.chunk.js"
+    "static/js/main.a3fd4ddb.chunk.js"
   ]
 }

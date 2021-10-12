@@ -6,7 +6,7 @@ import FormilyComponent from "./pages/formily";
 import ReactJsonSchemaForm from "./pages/reactJsonSchemaForm";
 import FormRenderComponent from "./pages/x-render";
 
-import { Link, BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Link, HashRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -14,21 +14,21 @@ function App() {
       <Router>
         <div>
           <p>
-            <Link to="/">Home</Link>
+            <Link to="./">Home</Link>
           </p>
           <p>
-            <Link to="./formily">Formily Demo</Link>
+            <Link to="/formily">Formily Demo</Link>
           </p>
           <p>
-            <Link to="./form-render">Form-Render Demo</Link>
+            <Link to="/form-render">Form-Render Demo</Link>
           </p>
           <p>
-            <Link to="./react-jsonschema-form">react-jsonschema-form Demo</Link>
+            <Link to="/react-jsonschema-form">react-jsonschema-form Demo</Link>
           </p>
         </div>
 
         <Switch>
-          <Route path="./formily">
+          <Route path="/formily">
             <div
               style={{
                 padding: "20px",
@@ -40,7 +40,7 @@ function App() {
               <FormilyComponent />
             </div>
           </Route>
-          <Route path="./form-render">
+          <Route path="/form-render">
             <div
               style={{
                 flex: 1,
