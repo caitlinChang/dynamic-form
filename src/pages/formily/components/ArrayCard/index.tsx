@@ -19,7 +19,6 @@ const ArrayCard = (props: PropsType) => {
   const field = useField<ArrayField>();
   const schema = useFieldSchema();
   const form = useForm();
-  // console.log("form = ", form);
   const status = form.getValuesIn(["tabs"]);
   console.log("status = ", status);
 

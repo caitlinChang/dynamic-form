@@ -2,6 +2,7 @@ import { buttonSettingSchema } from "./buttonSettingsSchema";
 import { buttonListSchema } from "./buttonListSchema";
 import { Schema } from "@formily/react";
 import { answerTabSchema } from "./answerSchema";
+import { actionSchema } from "./actionSchema";
 
 const formSchema = {
   answerTitle: {
@@ -21,6 +22,7 @@ const formSchema = {
       level: 5,
     },
   },
+  action: actionSchema,
   buttonSetting: buttonSettingSchema,
   button_list: buttonListSchema,
 };
@@ -28,6 +30,24 @@ const formSchema = {
 export const schemaTree = new Schema({
   type: "object",
   properties: {
+    // 用户权限控制字段
+    userType: {
+      type: "string",
+      title: "User Type",
+      "x-component": "Select",
+      "x-decorator": "FormItem",
+      default: "admin",
+      enum: [
+        {
+          label: "Admin",
+          value: "admin",
+        },
+        {
+          label: "normal user",
+          value: "normal",
+        },
+      ],
+    },
     tabs: {
       // 前端控制字段
       type: "string",
@@ -64,8 +84,8 @@ export const schemaTree = new Schema({
       // 真正的表单字段
       type: "object",
       "x-read-pretty": true,
+      // @ts-ignore
       properties: {
-        // TODO: void 字段不会在最终的form data里
         ...formSchema,
       },
     },

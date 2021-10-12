@@ -11,6 +11,7 @@ import {
 } from "@formily/antd";
 import ConditionCompose from "../../components/ConditionCompose";
 import ArrayCard from "./components/ArrayCard";
+import AuthorityTitle from "./components/AuthorityTitle";
 
 import { Typography } from "antd";
 export const components = {
@@ -25,5 +26,6 @@ export const components = {
   FormTab,
   Typography,
   ArrayTabs,
+  AuthorityTitle,
   ArrayCard,
 };
