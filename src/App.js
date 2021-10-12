@@ -17,18 +17,18 @@ function App() {
             <Link to="/">Home</Link>
           </p>
           <p>
-            <Link to="/formily">Formily Demo</Link>
+            <Link to="./formily">Formily Demo</Link>
           </p>
           <p>
-            <Link to="/form-render">Form-Render Demo</Link>
+            <Link to="./form-render">Form-Render Demo</Link>
           </p>
           <p>
-            <Link to="/react-jsonschema-form">react-jsonschema-form Demo</Link>
+            <Link to="./react-jsonschema-form">react-jsonschema-form Demo</Link>
           </p>
         </div>
 
         <Switch>
-          <Route path="/formily">
+          <Route path="./formily">
             <div
               style={{
                 padding: "20px",
@@ -40,7 +40,7 @@ function App() {
               <FormilyComponent />
             </div>
           </Route>
-          <Route path="/form-render">
+          <Route path="./form-render">
             <div
               style={{
                 flex: 1,
@@ -52,7 +52,7 @@ function App() {
               <FormRenderComponent />
             </div>
           </Route>
-          <Route path="/react-jsonschema-form">
+          <Route path="./react-jsonschema-form">
             <div
               style={{
                 flex: 1,
