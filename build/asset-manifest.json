@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dynamic-form/build/static/css/main.b3058946.chunk.css",
-    "main.js": "/dynamic-form/build/static/js/main.a3fd4ddb.chunk.js",
-    "main.js.map": "/dynamic-form/build/static/js/main.a3fd4ddb.chunk.js.map",
+    "main.js": "/dynamic-form/build/static/js/main.edf3f70c.chunk.js",
+    "main.js.map": "/dynamic-form/build/static/js/main.edf3f70c.chunk.js.map",
     "runtime-main.js": "/dynamic-form/build/static/js/runtime-main.c3a15384.js",
     "runtime-main.js.map": "/dynamic-form/build/static/js/runtime-main.c3a15384.js.map",
     "static/css/2.b0220099.chunk.css": "/dynamic-form/build/static/css/2.b0220099.chunk.css",
@@ -71,6 +71,6 @@
     "static/css/2.b0220099.chunk.css",
     "static/js/2.15321211.chunk.js",
     "static/css/main.b3058946.chunk.css",
-    "static/js/main.a3fd4ddb.chunk.js"
+    "static/js/main.edf3f70c.chunk.js"
   ]
 }

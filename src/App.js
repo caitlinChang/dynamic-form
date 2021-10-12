@@ -52,7 +52,7 @@ function App() {
               <FormRenderComponent />
             </div>
           </Route>
-          <Route path="./react-jsonschema-form">
+          <Route path="/react-jsonschema-form">
             <div
               style={{
                 flex: 1,
