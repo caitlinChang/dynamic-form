@@ -22,59 +22,63 @@ import {
   EyeOutlined,
 } from "@ant-design/icons";
 
+type ValueType = {
+  visible?: boolean;
+  disabled?: boolean;
+};
+
 type PropsType = {
   children?: (index: number) => ReactElement;
   name: string;
+  value?: ValueType;
+  onChange?: (v: ValueType) => void;
 };
 // 用 JSON - Schema 实现自定义组件
 const ArrayCard = (props: PropsType) => {
-  const [disabled, setDisabled] = useState(false);
-  const [visible, setVisible] = useState(true);
+  const { disabled = false, visible = true } = props.value || {};
   const schema = useFieldSchema();
   const form = useForm();
+  const userType = form.getValuesIn(["userType"]);
   const handleControlEdit = function () {
-    // schema.setAdditionalProperties({
-    //   disabled: {
-    //     type: "boolean",
-    //     default: false,
-    //   },
-    //   visible: {
-    //     type: "boolean",
-    //     default: true,
-    //   },
-    // });
-    schema["x-data"] = {
-      ...schema["x-data"],
+    form.setValuesIn("form.action.type1Status", {
       disabled: !disabled,
-    };
-    console.log("schema", schema);
-
-    setDisabled(!disabled);
+      visible,
+    });
+    props.onChange?.({
+      disabled: !disabled,
+      visible,
+    });
   };
   const handleControlVisible = function () {
-    // schema["x-visible"] = !visible;
-    schema["x-data"] = {
-      ...schema["x-data"],
+    form.setValuesIn("form.action.type1Status", {
       visible: !visible,
-    };
-    console.log("schema", schema);
-    console.log("userType", form.getValuesIn(["userType"]));
-    setVisible(!visible);
+      disabled,
+    });
+    console.log("value = ", form.getValuesIn(["form.action.type1Status"]));
+
+    props.onChange?.({
+      visible: !visible,
+      disabled,
+    });
   };
   return (
     <div style={{ marginBottom: "20px" }}>
       <div style={{ display: "flex", margin: "10px 0" }}>
         <h3 style={{ marginRight: "20px" }}>{props.name}</h3>
-        <Button
-          onClick={handleControlEdit}
-          style={{ color: disabled ? "#555" : "red", marginRight: "10px" }}
-          icon={<FormOutlined />}
-        ></Button>
-        <Button
-          style={{ color: visible ? "red" : "#555" }}
-          onClick={handleControlVisible}
-          icon={<EyeOutlined />}
-        ></Button>
+        {userType === "admin" && (
+          <>
+            <Button
+              onClick={handleControlEdit}
+              style={{ color: disabled ? "#555" : "red", marginRight: "10px" }}
+              icon={<FormOutlined />}
+            ></Button>
+            <Button
+              style={{ color: visible ? "red" : "#555" }}
+              onClick={handleControlVisible}
+              icon={<EyeOutlined />}
+            ></Button>
+          </>
+        )}
       </div>
 
       {props.children}

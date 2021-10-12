@@ -1,6 +1,18 @@
 export const actionSchema = {
   type: "object",
   properties: {
+    // TODO: 另设关联字段去实现显示和隐藏的控制
+    type1Status: {
+      type: "object",
+      "x-component": "AuthorityTitle",
+      "x-component-props": {
+        name: "type 1",
+      },
+      default: {
+        disabled: false,
+        visible: true,
+      },
+    },
     type1: {
       type: "string",
       "x-component": "Radio.Group",
@@ -20,29 +32,15 @@ export const actionSchema = {
           },
         ],
       },
-      "x-decorator": "AuthorityTitle",
-      "x-decorator-props": {
-        name: "type 1",
-      },
-      additionalProperties: {
-        disabled: {
-          type: "boolean",
-          default: false,
-        },
-        visible: {
-          type: "boolean",
-          default: true,
-        },
-      },
-      "x-data": {
-        disabled: false,
-        visible: true,
-      },
+      default: 1,
       "x-reactions": {
         dependencies: ["userType"],
         fulfill: {
           state: {
-            visible: "{{$self['x-data'].visible}}",
+            visible:
+              "{{$dependencies[0] === 'admin' || $form.getValuesIn(['form.action.type1Status']).visible}}",
+            disabled:
+              "{{$dependencies[0] === 'normal' && $form.getValuesIn(['form.action.type1Status']).disabled}}",
           },
         },
       },
