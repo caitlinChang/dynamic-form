@@ -36,7 +36,6 @@ type PropsType = {
 // 用 JSON - Schema 实现自定义组件
 const ArrayCard = (props: PropsType) => {
   const { disabled = false, visible = true } = props.value || {};
-  const schema = useFieldSchema();
   const form = useForm();
   const userType = form.getValuesIn(["userType"]);
   const handleControlEdit = function () {
@@ -44,19 +43,9 @@ const ArrayCard = (props: PropsType) => {
       disabled: !disabled,
       visible,
     });
-    props.onChange?.({
-      disabled: !disabled,
-      visible,
-    });
   };
   const handleControlVisible = function () {
     form.setValuesIn("form.action.type1Status", {
-      visible: !visible,
-      disabled,
-    });
-    console.log("value = ", form.getValuesIn(["form.action.type1Status"]));
-
-    props.onChange?.({
       visible: !visible,
       disabled,
     });

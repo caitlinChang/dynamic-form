@@ -16,7 +16,6 @@ export default function FormilyComponent() {
   const SchemaField = createSchemaField({ components });
   const handleSave = function () {
     const values = form.getValuesIn([]);
-    console.log("values = ", { ...values });
   };
   return (
     <div>

@@ -5,6 +5,7 @@ import "antd/dist/antd.css";
 import FormilyComponent from "./pages/formily";
 import ReactJsonSchemaForm from "./pages/reactJsonSchemaForm";
 import FormRenderComponent from "./pages/x-render";
+import PerformanceComponent from "./pages/performance";
 
 import { Link, HashRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -62,6 +63,18 @@ function App() {
               }}
             >
               <ReactJsonSchemaForm />
+            </div>
+          </Route>
+          <Route path="/performance">
+            <div
+              style={{
+                flex: 1,
+                padding: "20px",
+                border: "1px solid #555",
+                margin: "10px",
+              }}
+            >
+              <PerformanceComponent />
             </div>
           </Route>
         </Switch>
