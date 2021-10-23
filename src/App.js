@@ -2,7 +2,7 @@ import "./App.css";
 import "@formily/antd/dist/antd.css";
 import "antd/dist/antd.css";
 
-import FormilyComponent from "./pages/formily";
+import FormilyComponent from "./pages/formily/makeupSchema";
 import ReactJsonSchemaForm from "./pages/reactJsonSchemaForm";
 import FormRenderComponent from "./pages/x-render";
 import PerformanceComponent from "./pages/performance";
