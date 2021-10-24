@@ -12,7 +12,7 @@ const TabsSchema:ISchema = {
         key: "edit",
       },
     },
-    View: {
+    view: {
       type: "void",
       "x-component": "FormTab.TabPane",
       "x-component-props": {

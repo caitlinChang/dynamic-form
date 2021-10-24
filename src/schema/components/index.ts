@@ -1,17 +1,35 @@
 import { Schema, ISchema } from '@formily/react';
-import readWriteCtrlSchema from './readWriteCtrlSchema'
+import * as readWriteCtrlSchema from './readWriteCtrl'
+import TabsSchema from './tabs';
 
-type AdditionalProperties = {
-  addReadWriteCtrl:() => FlowSchemaType;
+export function getEditorFormRootSchema(): Schema{
+  const schema = new Schema({
+    type:'object',
+    properties:{
+      tabs:TabsSchema,
+      data:{
+        type:'object'
+      }
+    }
+  })
+  TabsSchema?.properties?.view.addProperty?.('input',{
+    type: "string",
+    title: "Button Style",
+    name: "button_style",
+    "x-component": "Select",
+    "x-component-props": {},
+    "x-decorator": "FormItem",
+    "x-decorator-props": {
+      label: "Button Style",
+    },
+    default: "normal",
+  })
 
+  return schema
 }
 
-type FlowSchemaType = ISchema & AdditionalProperties
-
-export const schema:ISchema = new Schema({
-  type:'object'
-})
-// 一键配置模块化的东西
-schema.addReadWriteCtrl = function(){
-  
+function setRootSchemaTabPane(schema: Schema, tabName: 'view' | 'edit', content: Schema | ISchema){
+  return schema?.properties?.[tabName]?.addProperty('name',content)
 }
+
+

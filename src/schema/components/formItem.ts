@@ -1,3 +1,3 @@
-export function read_write_ctrl_Wrapper(name){
+export default function read_write_ctrl_Wrapper(){
 
 }

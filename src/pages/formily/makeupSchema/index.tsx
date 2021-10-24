@@ -1,46 +1,39 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import { createForm } from '@formily/core'
-import { createSchemaField,ISchema, Schema,FormProvider } from '@formily/react'
-import { Form, FormItem, Input, NumberPicker } from '@formily/antd'
-import { components } from '../components'
+import { createSchemaField, FormProvider } from '@formily/react'
 
-export default function MakeUpSchema(){
+import { components } from '../components'
+import { NodeType } from './type';
+import { matchNodeSchema } from './utils';
+
+export default function MakeUpSchema(props:{
+  nodeType: NodeType
+}){
+  const [schema,setSchema] = useState({})
+  const form = createForm();
+  const { nodeType = 0 } = props;
+
+  useEffect(() => {
+    setSchema(matchNodeSchema(nodeType))
+  },[nodeType])
+
   const SchemaField = createSchemaField({
     components
   });
-  console.log('SchemaField', SchemaField);
   
-  const form = createForm();
-  const schema: ISchema = {
-    type:'object',
-    properties:{
-      name:{
-        type:'string',
-        title:'name',
-        'x-component':'Select',
-        'x-decorator':'FormItem'
-      },
-      age:{
-        type:'number',
-        title:'age',
-        'x-component':'Select',
-        'x-decorator':'FormItem'
-      }
-    }
-  }
 
-  const demo = <>
-  <SchemaField.String name="username" title="用户名" x-component="Input" x-decorator="FormItem" />
-      <SchemaField.String name="password" title="密码" x-component="Input" 
-      x-component-props={{
-        type:'password'
-      }} x-decorator="FormItem" />
-  </>
-
-  const schemaL = new Schema(schema)
-  return <FormProvider form={form}>
-    <SchemaField  >
-      {/* { demo } */}
-    </SchemaField>
-  </FormProvider>
+  return <div>
+    <h3>澄清节点</h3>
+    <FormProvider form={form}>
+      <SchemaField schema={schema} />
+    </FormProvider>
+    <h3>条件节点</h3>
+    <FormProvider form={form}>
+      <SchemaField schema={schema} />
+    </FormProvider>
+    <h3>回复节点</h3>
+    <FormProvider form={form}>
+      <SchemaField schema={schema} />
+    </FormProvider>
+  </div>
 }
