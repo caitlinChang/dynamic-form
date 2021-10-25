@@ -14,7 +14,7 @@ export const actionSchema = {
       },
     },
     type1: {
-      type: "string",
+      type: "object",// {value,visible,disable}
       "x-component": "Radio.Group",
       "x-component-props": {
         options: [

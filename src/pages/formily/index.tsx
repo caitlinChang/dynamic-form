@@ -1,5 +1,5 @@
 import React from "react";
-import { createForm, onFieldValueChange, FormPath } from "@formily/core";
+import { createForm, onFormValuesChange, FormPath } from "@formily/core";
 import { FormProvider, Field, createSchemaField } from "@formily/react";
 import { Form, FormButtonGroup } from "@formily/antd";
 
@@ -12,7 +12,16 @@ import ButtonGroup from "antd/lib/button/button-group";
 import "./index.css";
 
 export default function FormilyComponent() {
-  const form = createForm({});
+  const form = createForm({
+    effects() {
+      onFormValuesChange((form) => {
+        // @ts-ignore
+        console.log(
+          "表单值变化: " + JSON.stringify(form.getFieldState(["tabs"]).active)
+        );
+      });
+    },
+  });
   const SchemaField = createSchemaField({ components });
   const handleSave = function () {
     const values = form.getValuesIn([]);

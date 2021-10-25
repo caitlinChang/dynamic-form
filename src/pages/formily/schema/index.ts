@@ -1,9 +1,10 @@
+import { specialSchema } from "./specialSchema";
 import { buttonSettingSchema } from "./buttonSettingsSchema";
 import { buttonListSchema } from "./buttonListSchema";
 import { Schema } from "@formily/react";
 import { answerTabSchema } from "./answerSchema";
 import { actionSchema } from "./actionSchema";
-
+import { FormTab } from "@formily/antd";
 const formSchema = {
   answerTitle: {
     type: "void",
@@ -25,7 +26,10 @@ const formSchema = {
   action: actionSchema,
   buttonSetting: buttonSettingSchema,
   button_list: buttonListSchema,
+  special_settings: specialSchema,
 };
+
+const formTab = FormTab.createFormTab?.("view");
 
 export const schemaTree = new Schema({
   type: "object",
@@ -50,17 +54,20 @@ export const schemaTree = new Schema({
     },
     tabs: {
       // 前端控制字段
-      type: "string",
-      default: "edit",
+      type: "void",
+      // default: "edit",
       "x-component": "FormTab",
-      "x-reactions": {
-        target: "form",
-        fulfill: {
-          schema: {
-            "x-read-pretty": "{{$self.value === 'view'}}",
-          },
-        },
+      "x-component-props": {
+        FormTab: "{{formTab}}",
       },
+      // "x-reactions": {
+      //   target: "form",
+      //   fulfill: {
+      //     schema: {
+      //       "x-read-pretty": "{{$self.value === 'view'}}",
+      //     },
+      //   },
+      // },
       properties: {
         edit: {
           type: "void",
