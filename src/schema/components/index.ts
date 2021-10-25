@@ -28,8 +28,5 @@ export function getEditorFormRootSchema(): Schema{
   return schema
 }
 
-function setRootSchemaTabPane(schema: Schema, tabName: 'view' | 'edit', content: Schema | ISchema){
-  return schema?.properties?.[tabName]?.addProperty('name',content)
-}
 
 

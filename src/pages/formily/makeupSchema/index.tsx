@@ -27,13 +27,13 @@ export default function MakeUpSchema(props:{
     <FormProvider form={form}>
       <SchemaField schema={schema} />
     </FormProvider>
-    <h3>条件节点</h3>
+    {/* <h3>条件节点</h3>
     <FormProvider form={form}>
       <SchemaField schema={schema} />
     </FormProvider>
     <h3>回复节点</h3>
     <FormProvider form={form}>
       <SchemaField schema={schema} />
-    </FormProvider>
+    </FormProvider> */}
   </div>
 }
